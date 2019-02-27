@@ -11,10 +11,18 @@ namespace ACM.BL
     //callable from any other component
     public class Customer
     {
+
+        public Customer(int customerId)
+        {
+            this.CustomerId = customerId;
+        }
+
         // adding properties to customer class
         // the class should encapsulate the data
         // by defining a private backing field
         private string _lastName;
+
+        public static int InstanceCount { get; set; }
 
         // if this were internal, then it would only be accessible
         // to other component in the Business Layer class (AKA same namespace)
@@ -51,6 +59,15 @@ namespace ACM.BL
             }
         }
 
-        public static int InstanceCount { get; set; }
+        public bool Validate()
+        {
+            bool isValid = true;
+            if (string.IsNullOrWhiteSpace(LastName))
+                isValid = false;
+            if (string.IsNullOrWhiteSpace(EmailAddress))
+                isValid = false;
+
+            return isValid;
+        }
     }
 }
