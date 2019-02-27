@@ -106,6 +106,15 @@ namespace ACM.BLTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void TestCustomerId()
+        {
+            var SetId = 1;
+            var C1 = new Customer(SetId);
+            var cId = C1.CustomerId;
+
+            Assert.AreEqual(SetId, cId);
+        }
     }
 }
     
