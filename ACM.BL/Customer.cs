@@ -11,6 +11,8 @@ namespace ACM.BL
     //callable from any other component
     public class Customer
     {
+        public Customer()
+        { }
 
         public Customer(int customerId)
         {
